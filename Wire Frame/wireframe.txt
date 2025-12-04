@@ -1,0 +1,640 @@
+import React, { useState } from 'react';
+import { 
+  Layout, 
+  Users, 
+  BookOpen, 
+  Trophy, 
+  Calendar, 
+  MessageCircle, 
+  Menu, 
+  ChevronRight, 
+  Download, 
+  Shield, 
+  Briefcase, 
+  Search,
+  CheckCircle,
+  BarChart,
+  UserCheck,
+  Eye,
+  FileText,
+  Heart,
+  Star,
+  Award,
+  Video,
+  Mic,
+  Building,
+  GraduationCap,
+  Scale,
+  Newspaper
+} from 'lucide-react';
+
+// --- Components ---
+
+const Annotation = ({ phase, task, visible }) => {
+  if (!visible) return null;
+  return (
+    <div className="absolute -right-4 -top-4 z-20 bg-yellow-100 border-l-4 border-yellow-500 text-yellow-900 p-2 text-xs shadow-lg max-w-[200px] rounded animate-in fade-in zoom-in duration-300">
+      <span className="font-bold block uppercase tracking-wider text-[10px] text-yellow-600">{phase}</span>
+      {task}
+    </div>
+  );
+};
+
+const PlaceholderImg = ({ label, height = "h-40" }) => (
+  <div className={`w-full ${height} bg-gray-100 border-2 border-dashed border-gray-300 flex items-center justify-center text-gray-400 font-medium rounded-lg`}>
+    <div className="text-center">
+      <div className="mx-auto w-8 h-8 mb-2 bg-gray-200 rounded-full"></div>
+      {label}
+    </div>
+  </div>
+);
+
+// --- Pages ---
+
+const LandingPage = ({ showNotes }) => (
+  <div className="space-y-8">
+    {/* Hero Section */}
+    <div className="relative bg-slate-900 text-white p-12 rounded-xl text-center overflow-hidden">
+      <div className="relative z-10">
+        <h1 className="text-4xl font-bold mb-4">CyberShujaa Academy</h1>
+        <p className="text-xl text-slate-300 mb-8 max-w-2xl mx-auto">Bridging the gap between theory and practice in cybersecurity.</p>
+        <div className="flex justify-center gap-4">
+          <button className="bg-blue-600 px-6 py-3 rounded-lg font-semibold hover:bg-blue-700">Browse Courses</button>
+          <button className="bg-transparent border border-white px-6 py-3 rounded-lg font-semibold hover:bg-white/10">Hire Talent</button>
+        </div>
+      </div>
+       <div className="absolute top-4 right-4">
+         <Annotation visible={showNotes} phase="Phase 3" task="Implement SSO Identity Integration" />
+      </div>
+    </div>
+
+    {/* Metrics Strip */}
+    <div className="relative grid grid-cols-1 md:grid-cols-3 gap-6">
+      {[
+        { label: "Graduates Placed", val: "450+" },
+        { label: "Active Partners", val: "30+" },
+        { label: "Current Students", val: "120" }
+      ].map((stat, idx) => (
+        <div key={idx} className="bg-white p-6 rounded-xl border border-gray-200 shadow-sm text-center">
+          <div className="text-3xl font-bold text-slate-800">{stat.val}</div>
+          <div className="text-sm text-gray-500 uppercase tracking-wide">{stat.label}</div>
+        </div>
+      ))}
+       <div className="absolute -top-2 right-0">
+         <Annotation visible={showNotes} phase="Phase 5" task="Talent Pool Metrics Dashboard" />
+      </div>
+    </div>
+
+    {/* Success Stories Preview */}
+    <div className="relative bg-white p-8 rounded-xl border border-gray-200">
+      <h3 className="text-xl font-bold mb-6 flex items-center gap-2">
+        <Users className="w-5 h-5 text-blue-600" /> Alumni Success Stories
+      </h3>
+      <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+        {[1, 2, 3, 4].map((i) => (
+          <div key={i} className="space-y-2">
+            <PlaceholderImg label="Alumni Photo" height="h-32" />
+            <div className="h-4 bg-gray-100 rounded w-3/4"></div>
+            <div className="h-3 bg-gray-100 rounded w-1/2"></div>
+          </div>
+        ))}
+      </div>
+      <div className="absolute top-0 right-0">
+        <Annotation visible={showNotes} phase="Phase 5" task="Visual gallery of alumni with stories & placements" />
+      </div>
+    </div>
+  </div>
+);
+
+const ShujaaGirlzPage = ({ showNotes }) => (
+  <div className="space-y-8">
+    <div className="bg-purple-900 text-white p-12 rounded-xl overflow-hidden relative">
+      <div className="relative z-10 grid md:grid-cols-2 gap-8 items-center">
+        <div>
+          <div className="inline-flex items-center gap-2 bg-purple-800 px-3 py-1 rounded-full text-xs font-semibold mb-4 text-purple-200 border border-purple-700">
+            <Heart className="w-3 h-3 fill-current" /> Women in Cybersecurity
+          </div>
+          <h1 className="text-4xl font-bold mb-4">Shujaa Girlz</h1>
+          <p className="text-lg text-purple-200 mb-6">Empowering women with specialized mentorship, scholarships, and technical training in cyber defense.</p>
+          <div className="flex gap-4">
+            <button className="bg-pink-600 px-6 py-3 rounded-lg font-semibold hover:bg-pink-700">Join Next Cohort</button>
+            <button className="bg-transparent border border-purple-400 px-6 py-3 rounded-lg font-semibold hover:bg-purple-800">Become a Mentor</button>
+          </div>
+        </div>
+         <div className="hidden md:flex justify-end">
+          <div className="w-64 h-64 bg-purple-800 rounded-full flex items-center justify-center border-4 border-purple-700/50">
+             <Users className="w-24 h-24 text-purple-400" />
+          </div>
+        </div>
+      </div>
+      <div className="absolute top-4 right-4">
+         <Annotation visible={showNotes} phase="Phase 3" task="Detailed Course Microsites (Adapted for Shujaa Girlz)" />
+      </div>
+    </div>
+
+    {/* Program Features - Fully Restored */}
+    <div className="grid md:grid-cols-3 gap-6">
+      <div className="bg-white p-6 rounded-xl border border-purple-100 shadow-sm">
+        <Award className="w-8 h-8 text-pink-600 mb-4" />
+        <h3 className="font-bold text-lg mb-2">Scholarships</h3>
+        <p className="text-gray-600 text-sm">Full and partial funding available for qualifying female candidates across East Africa.</p>
+      </div>
+      <div className="bg-white p-6 rounded-xl border border-purple-100 shadow-sm">
+        <Star className="w-8 h-8 text-purple-600 mb-4" />
+        <h3 className="font-bold text-lg mb-2">1-on-1 Mentorship</h3>
+        <p className="text-gray-600 text-sm">Get paired with senior female security engineers from top banks and telcos.</p>
+      </div>
+      <div className="bg-white p-6 rounded-xl border border-purple-100 shadow-sm">
+        <Users className="w-8 h-8 text-blue-600 mb-4" />
+        <h3 className="font-bold text-lg mb-2">Community Events</h3>
+        <p className="text-gray-600 text-sm">Exclusive networking breakfasts and "Women in Tech" panels.</p>
+      </div>
+    </div>
+
+    {/* Cohort Application Block - Fully Restored */}
+    <div className="bg-pink-50 border border-pink-100 rounded-xl p-8 flex flex-col md:flex-row items-center justify-between gap-6">
+      <div>
+        <h3 className="text-xl font-bold text-gray-900">Next Cohort: May 2024</h3>
+        <p className="text-gray-600 mt-1">Application deadline: <span className="font-semibold text-pink-700">April 15th</span></p>
+      </div>
+      <div className="w-full md:w-auto relative">
+         <button className="w-full md:w-auto bg-slate-900 text-white px-8 py-3 rounded-lg font-semibold">Apply to Shujaa Girlz</button>
+         <div className="absolute -bottom-10 right-0">
+           <Annotation visible={showNotes} phase="Phase 2" task="Migrate Application Forms (Specific Logic for Girlz)" />
+         </div>
+      </div>
+    </div>
+  </div>
+);
+
+const CourseDetail = ({ showNotes }) => (
+  <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+    <div className="lg:col-span-2 space-y-8">
+      <div className="relative">
+        <h2 className="text-3xl font-bold text-slate-900 mb-2">Ethical Hacking & Penetration Testing</h2>
+        <p className="text-gray-600 mb-4">Master the art of offensive security with hands-on labs.</p>
+        <div className="flex gap-2 mb-6">
+          <span className="bg-blue-100 text-blue-800 text-xs px-2 py-1 rounded-full">Level: Intermediate</span>
+          <span className="bg-green-100 text-green-800 text-xs px-2 py-1 rounded-full">Duration: 12 Weeks</span>
+        </div>
+        <Annotation visible={showNotes} phase="Phase 3" task="Detailed Course Microsites (Syllabus, Bio, Tools)" />
+      </div>
+
+      {/* Tabs */}
+      <div className="border-b border-gray-200 flex gap-6 text-sm font-medium text-gray-500">
+        <span className="text-blue-600 border-b-2 border-blue-600 pb-2 cursor-pointer">Syllabus</span>
+        <span className="hover:text-gray-800 cursor-pointer">Instructor</span>
+        <span className="hover:text-gray-800 cursor-pointer">Tools Stack</span>
+      </div>
+      
+      {/* Syllabus Content */}
+      <div className="space-y-4">
+        {[1, 2, 3].map((m) => (
+          <div key={m} className="bg-white border border-gray-200 p-4 rounded-lg flex justify-between items-center">
+            <div>
+              <div className="font-semibold">Module {m}: Network Reconnaissance</div>
+              <div className="text-sm text-gray-500">Week {m} • 4 Labs</div>
+            </div>
+            <ChevronRight className="w-5 h-5 text-gray-400" />
+          </div>
+        ))}
+        <button className="flex items-center gap-2 text-blue-600 font-medium mt-4">
+          <Download className="w-4 h-4" /> Download Full Syllabus PDF
+        </button>
+      </div>
+    </div>
+    
+    <div className="relative space-y-6">
+      <div className="bg-white p-6 rounded-xl shadow-lg border border-blue-100 sticky top-6">
+        <h3 className="text-lg font-bold mb-4">Apply Now</h3>
+        <form className="space-y-3">
+          <input type="text" placeholder="Full Name" className="w-full p-2 border rounded text-sm" />
+          <input type="email" placeholder="Email Address" className="w-full p-2 border rounded text-sm" />
+          <select className="w-full p-2 border rounded text-sm text-gray-500">
+            <option>Select Cohort</option>
+            <option>May 2024</option>
+          </select>
+          <button className="w-full bg-blue-600 text-white py-2 rounded-lg font-semibold hover:bg-blue-700">Submit Application</button>
+          <p className="text-xs text-gray-400 text-center">We no longer use Google Forms.</p>
+        </form>
+        <div className="absolute -left-4 top-10">
+          <Annotation visible={showNotes} phase="Phase 2" task="Migrate Application Forms (Embedded onsite form)" />
+        </div>
+      </div>
+    </div>
+  </div>
+);
+
+const EmployerDashboard = ({ showNotes }) => (
+  <div className="space-y-6">
+    <div className="flex justify-between items-end">
+      <div>
+        <h2 className="text-2xl font-bold text-slate-900">Talent Portal</h2>
+        <p className="text-gray-500">Find the next generation of cybersecurity experts.</p>
+      </div>
+      <button className="bg-slate-900 text-white px-4 py-2 rounded-lg text-sm flex items-center gap-2">
+        <Briefcase className="w-4 h-4" /> Post a Job
+      </button>
+    </div>
+
+    <div className="relative grid grid-cols-1 md:grid-cols-4 gap-4">
+      <div className="bg-white p-4 rounded-lg border border-gray-200 shadow-sm">
+        <div className="text-gray-500 text-xs uppercase font-semibold">Students Available</div>
+        <div className="text-2xl font-bold text-blue-600 mt-1">84</div>
+        <div className="text-xs text-green-600 flex items-center mt-1"><UserCheck className="w-3 h-3 mr-1" /> Verified Skills</div>
+      </div>
+       <div className="absolute top-0 right-0">
+          <Annotation visible={showNotes} phase="Phase 5" task="Talent Pool Metrics Dashboard" />
+      </div>
+    </div>
+
+    <div className="relative bg-white border border-gray-200 rounded-xl overflow-hidden shadow-sm">
+      <table className="w-full text-left text-sm">
+        <thead className="bg-gray-50 text-gray-500 font-medium border-b">
+          <tr>
+            <th className="p-4">Candidate</th>
+            <th className="p-4">Status</th>
+            <th className="p-4">Top Skills</th>
+            <th className="p-4">Action</th>
+          </tr>
+        </thead>
+        <tbody className="divide-y">
+          {[1, 2, 3].map((row) => (
+            <tr key={row} className="hover:bg-gray-50">
+              <td className="p-4 flex items-center gap-3">
+                <div className="w-8 h-8 bg-blue-100 rounded-full flex items-center justify-center text-blue-600 font-bold text-xs">CS</div>
+                <div>
+                  <div className="font-medium text-slate-900">Student #{202300 + row}</div>
+                  <div className="text-xs text-gray-500">Nairobi, KE</div>
+                </div>
+              </td>
+              <td className="p-4"><span className="bg-green-100 text-green-700 px-2 py-1 rounded text-xs font-medium">Open to Work</span></td>
+              <td className="p-4"><span className="bg-gray-100 px-2 py-1 rounded text-xs">Linux</span></td>
+              <td className="p-4"><button className="text-blue-600 hover:text-blue-800 font-medium text-xs border border-blue-200 px-3 py-1 rounded">View Profile</button></td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+       <div className="absolute top-10 right-10">
+         <Annotation visible={showNotes} phase="Phase 3" task="Student Open to Work Feature" />
+      </div>
+    </div>
+  </div>
+);
+
+const CommunityPage = ({ showNotes }) => (
+  <div className="space-y-8">
+    {/* Hall of Fame - Fully Restored */}
+    <div className="relative bg-slate-900 text-white rounded-xl p-8 overflow-hidden">
+      <div className="flex items-center gap-3 mb-6">
+        <Trophy className="w-8 h-8 text-yellow-400" />
+        <h2 className="text-2xl font-bold">Security Hall of Fame</h2>
+      </div>
+      
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+        {['CTF Champion', 'Bug Bounty Hunter', 'Defense Expert'].map((title, idx) => (
+          <div key={idx} className="bg-white/10 backdrop-blur-sm p-4 rounded-lg border border-white/20">
+            <div className="flex justify-between items-start mb-4">
+              <div className="bg-yellow-500 text-slate-900 text-xs font-bold px-2 py-1 rounded">#{idx + 1} Rank</div>
+              <Shield className="w-5 h-5 text-slate-300" />
+            </div>
+            <div className="w-12 h-12 bg-white/20 rounded-full mb-3"></div>
+            <div className="font-bold">Jane Doe</div>
+            <div className="text-xs text-slate-300">{title}</div>
+            <div className="mt-3 text-sm font-mono text-green-400">Score: 9,850</div>
+          </div>
+        ))}
+      </div>
+      <div className="absolute top-4 right-4">
+        <Annotation visible={showNotes} phase="Phase 2" task="Security Hall of Fame Page (CTF Achievements)" />
+      </div>
+    </div>
+
+    {/* Events & Job Board - Fully Restored */}
+    <div className="relative grid grid-cols-1 md:grid-cols-2 gap-8">
+      <div className="border border-gray-200 rounded-xl p-6 bg-white">
+        <h3 className="text-lg font-bold mb-4 flex items-center gap-2">
+          <Calendar className="w-5 h-5 text-blue-600" /> Upcoming Events
+        </h3>
+        <div className="space-y-4">
+          {[1, 2].map(e => (
+             <div key={e} className="flex gap-4 items-start">
+               <div className="bg-blue-50 text-blue-700 text-center p-2 rounded min-w-[60px]">
+                 <div className="text-xs font-bold uppercase">Oct</div>
+                 <div className="text-xl font-bold">{10 + e}</div>
+               </div>
+               <div>
+                 <div className="font-medium text-slate-900">Cyber Defense Summit 2025</div>
+                 <div className="text-sm text-gray-500">Virtual Webinar • 2:00 PM EAT</div>
+                 <button className="text-blue-600 text-xs font-medium mt-1">Register Now</button>
+               </div>
+             </div>
+          ))}
+        </div>
+        <Annotation visible={showNotes} phase="Phase 4" task="Industry Events Page & Calendar" />
+      </div>
+
+      <div className="border border-gray-200 rounded-xl p-6 bg-gray-50">
+         <h3 className="text-lg font-bold mb-4 flex items-center gap-2">
+          <FileText className="w-5 h-5 text-purple-600" /> Job Board
+        </h3>
+        <div className="bg-white p-4 rounded-lg border border-gray-200 shadow-sm mb-3">
+          <div className="text-sm font-bold text-slate-800">Junior SOC Analyst</div>
+          <div className="text-xs text-gray-500 mb-2">Equity Bank • Nairobi</div>
+          <button className="w-full bg-slate-900 text-white text-xs py-2 rounded">Apply Now</button>
+        </div>
+        <div className="text-center mt-4">
+          <button className="text-sm text-blue-600 font-medium">View All Jobs</button>
+        </div>
+        <Annotation visible={showNotes} phase="Phase 4" task="Jobs & Job Alerts Module" />
+      </div>
+    </div>
+  </div>
+);
+
+const CareerServicesPage = ({ showNotes }) => (
+  <div className="space-y-8">
+    <div className="grid md:grid-cols-3 gap-8">
+      {/* Main Services */}
+      <div className="md:col-span-2 space-y-6">
+        <h2 className="text-2xl font-bold text-slate-900">Career Services</h2>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+          {['CV & Resume Review', 'Mock Interviews', 'LinkedIn Optimization', 'Salary Negotiation'].map(service => (
+            <div key={service} className="bg-white p-6 rounded-xl border border-gray-200 shadow-sm hover:border-blue-300 transition-colors">
+              <UserCheck className="w-8 h-8 text-blue-600 mb-3" />
+              <h3 className="font-semibold text-lg">{service}</h3>
+            </div>
+          ))}
+        </div>
+      </div>
+      {/* Job Decency Section */}
+      <div className="relative bg-green-50 p-6 rounded-xl border border-green-200">
+        <div className="flex items-center gap-2 mb-4 text-green-800 font-bold text-lg">
+          <Scale className="w-6 h-6" /> Job Decency Standards
+        </div>
+        <p className="text-sm text-green-700 mb-4">
+          We only partner with employers who meet our decent work criteria:
+        </p>
+        <ul className="space-y-3 text-sm text-green-800">
+          <li className="flex items-center gap-2"><CheckCircle className="w-4 h-4" /> Fair Market Wages</li>
+          <li className="flex items-center gap-2"><CheckCircle className="w-4 h-4" /> Safe Working Environment</li>
+          <li className="flex items-center gap-2"><CheckCircle className="w-4 h-4" /> Clear Employment Contracts</li>
+        </ul>
+        <Annotation visible={showNotes} phase="Phase 4" task="Job Decency Section" />
+      </div>
+    </div>
+  </div>
+);
+
+const ResearchHubPage = ({ showNotes }) => (
+  <div className="space-y-8">
+    <div className="bg-slate-50 p-8 rounded-xl border border-slate-200 text-center">
+      <h2 className="text-3xl font-bold text-slate-900 mb-2">Research & Publications Hub</h2>
+      <p className="text-gray-600 max-w-2xl mx-auto">Exploring the frontiers of African cybersecurity through data-driven analysis.</p>
+      <div className="mt-6 flex justify-center gap-4">
+        <button className="bg-slate-900 text-white px-6 py-2 rounded-lg text-sm">View Latest Report</button>
+        <button className="bg-white border border-gray-300 px-6 py-2 rounded-lg text-sm">Submit Paper</button>
+      </div>
+    </div>
+
+    <div className="grid md:grid-cols-2 gap-8">
+      {/* Internal Papers */}
+      <div className="relative space-y-4">
+        <h3 className="text-xl font-bold flex items-center gap-2">
+          <BookOpen className="w-5 h-5 text-blue-600" /> Internal Publications
+        </h3>
+        {[1, 2].map(i => (
+          <div key={i} className="bg-white p-4 rounded-lg border border-gray-200 shadow-sm">
+            <div className="text-xs text-blue-600 font-semibold mb-1">Whitepaper • Q{i} 2024</div>
+            <h4 className="font-bold text-lg mb-2">State of Cyber Threats in Kenyan FinTech</h4>
+            <p className="text-gray-500 text-sm mb-3">An analysis of attack vectors targeting mobile money platforms.</p>
+            <button className="text-blue-600 text-xs font-bold flex items-center gap-1">Read Paper <ChevronRight className="w-3 h-3" /></button>
+          </div>
+        ))}
+         <div className="absolute -top-2 right-0">
+          <Annotation visible={showNotes} phase="Phase 5" task="Publish Internal Research Papers" />
+        </div>
+      </div>
+
+      {/* Student Spotlight - Restored */}
+      <div className="relative bg-white p-6 rounded-xl border border-gray-200">
+        <h3 className="text-xl font-bold flex items-center gap-2 mb-4">
+          <Star className="w-5 h-5 text-yellow-500" /> Student Research Spotlight
+        </h3>
+        <div className="flex gap-4 items-start">
+          <div className="w-16 h-16 bg-gray-200 rounded-full flex-shrink-0"></div>
+          <div>
+            <h4 className="font-bold">Kevin Omondi</h4>
+            <div className="text-sm text-gray-500 mb-2">Cohort 12 • Penetration Testing</div>
+            <p className="text-sm italic text-gray-700 bg-gray-50 p-3 rounded">
+              "Developing a low-cost IDS for SME networks using Raspberry Pi clusters."
+            </p>
+          </div>
+        </div>
+        <div className="absolute top-0 right-0">
+          <Annotation visible={showNotes} phase="Phase 5" task="Student Research Spotlight Program" />
+        </div>
+      </div>
+    </div>
+  </div>
+);
+
+const CorporatePage = ({ showNotes }) => (
+  <div className="space-y-8">
+    <div className="grid md:grid-cols-2 gap-12 items-center">
+      <div>
+        <h2 className="text-3xl font-bold text-slate-900 mb-4">Corporate Training Solutions</h2>
+        <p className="text-gray-600 mb-6">Upskill your workforce with custom cybersecurity bootcamps tailored to your industry stack.</p>
+        <ul className="space-y-3 mb-8">
+          <li className="flex items-center gap-3">
+            <div className="w-8 h-8 bg-blue-100 rounded-lg flex items-center justify-center text-blue-600"><Shield className="w-4 h-4"/></div>
+            <span className="font-medium">SOC Team Onboarding</span>
+          </li>
+          <li className="flex items-center gap-3">
+            <div className="w-8 h-8 bg-blue-100 rounded-lg flex items-center justify-center text-blue-600"><Users className="w-4 h-4"/></div>
+            <span className="font-medium">Employee Phishing Awareness</span>
+          </li>
+        </ul>
+        <button className="bg-blue-600 text-white px-6 py-3 rounded-lg font-semibold">Request Consultation</button>
+      </div>
+      <div className="grid grid-cols-2 gap-4">
+        {[1, 2, 3, 4].map(i => (
+          <div key={i} className="h-24 bg-gray-50 border border-gray-200 rounded-lg flex items-center justify-center text-gray-400 font-bold">
+            Client Logo {i}
+          </div>
+        ))}
+      </div>
+    </div>
+    <div className="relative">
+      <Annotation visible={showNotes} phase="Phase 5" task="Corporate Training & Clients Page" />
+    </div>
+  </div>
+);
+
+const MediaHubPage = ({ showNotes }) => (
+  <div className="space-y-8">
+    <div className="flex justify-between items-center border-b pb-4">
+      <h2 className="text-2xl font-bold text-slate-900">Shujaa Media Hub</h2>
+      <div className="flex gap-2">
+        <button className="text-sm bg-slate-100 px-3 py-1 rounded-full text-slate-700 font-medium">All</button>
+        <button className="text-sm hover:bg-slate-50 px-3 py-1 rounded-full text-slate-500">Podcasts</button>
+        <button className="text-sm hover:bg-slate-50 px-3 py-1 rounded-full text-slate-500">Videos</button>
+        <button className="text-sm hover:bg-slate-50 px-3 py-1 rounded-full text-slate-500">Press</button>
+      </div>
+    </div>
+
+    <div className="grid md:grid-cols-3 gap-6">
+      {/* Featured Video */}
+      <div className="md:col-span-2 relative group cursor-pointer">
+        <div className="bg-slate-900 rounded-xl h-64 flex items-center justify-center text-white">
+          <Video className="w-12 h-12 opacity-80" />
+        </div>
+        <div className="mt-3">
+          <div className="text-xs text-blue-600 font-bold uppercase mb-1">Documentary</div>
+          <h3 className="font-bold text-xl">The Rise of Cyber Defenders in East Africa</h3>
+        </div>
+      </div>
+
+      {/* Podcast List */}
+      <div className="space-y-4">
+        <h3 className="font-bold text-gray-900 flex items-center gap-2">
+          <Mic className="w-5 h-5 text-purple-600" /> Shujaa Talks Podcast
+        </h3>
+        {[1, 2, 3].map(i => (
+          <div key={i} className="flex gap-3 items-start p-3 bg-white border border-gray-100 rounded-lg hover:shadow-md transition-shadow cursor-pointer">
+            <div className="w-10 h-10 bg-purple-100 rounded flex-shrink-0 flex items-center justify-center text-purple-600 font-bold text-xs">EP{i}</div>
+            <div>
+              <div className="font-semibold text-sm line-clamp-1">Navigating the Dark Web safely</div>
+              <div className="text-xs text-gray-500">24 mins • Host: Sarah K.</div>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+    <div className="relative">
+      <Annotation visible={showNotes} phase="Phase 5" task="Launch Shujaa Media Hub" />
+    </div>
+  </div>
+);
+
+const VerificationPage = ({ showNotes }) => (
+  <div className="max-w-2xl mx-auto space-y-8 py-8">
+    <div className="text-center space-y-4">
+      <div className="inline-flex p-3 bg-green-100 rounded-full mb-2">
+        <GraduationCap className="w-8 h-8 text-green-600" />
+      </div>
+      <h2 className="text-3xl font-bold text-slate-900">Verify a Graduate</h2>
+      <p className="text-gray-600">Enter the Certificate ID to verify CyberShujaa alumni credentials.</p>
+    </div>
+
+    <div className="relative bg-white p-8 rounded-xl shadow-lg border border-gray-200">
+      <div className="flex gap-4 mb-6">
+        <input 
+          type="text" 
+          placeholder="e.g. CS-2024-8921" 
+          className="flex-1 p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-green-500 outline-none"
+        />
+        <button className="bg-green-600 text-white px-6 rounded-lg font-semibold hover:bg-green-700">Verify</button>
+      </div>
+
+      {/* Mock Result */}
+      <div className="bg-green-50 border border-green-200 rounded-lg p-4 flex gap-4 items-center">
+        <CheckCircle className="w-8 h-8 text-green-600 flex-shrink-0" />
+        <div>
+          <div className="font-bold text-green-900">Valid Credential Found</div>
+          <div className="text-sm text-green-800">
+            Issued to <span className="font-semibold">John Kamau</span> on <span className="font-semibold">Dec 12, 2023</span>.
+            <br />
+            Certification: <span className="font-semibold">Certified SOC Analyst (Level 1)</span>
+          </div>
+        </div>
+      </div>
+      
+      <div className="absolute top-0 right-0">
+         <Annotation visible={showNotes} phase="Phase 5" task="Build Alumni Verification Directory" />
+      </div>
+    </div>
+  </div>
+);
+
+// --- Main App Shell ---
+
+export default function WireframeApp() {
+  const [activeTab, setActiveTab] = useState('home');
+  const [showNotes, setShowNotes] = useState(true);
+
+  const renderContent = () => {
+    switch (activeTab) {
+      case 'home': return <LandingPage showNotes={showNotes} />;
+      case 'shujaaGirlz': return <ShujaaGirlzPage showNotes={showNotes} />;
+      case 'course': return <CourseDetail showNotes={showNotes} />;
+      case 'employer': return <EmployerDashboard showNotes={showNotes} />;
+      case 'community': return <CommunityPage showNotes={showNotes} />;
+      case 'career': return <CareerServicesPage showNotes={showNotes} />;
+      case 'research': return <ResearchHubPage showNotes={showNotes} />;
+      case 'corporate': return <CorporatePage showNotes={showNotes} />;
+      case 'media': return <MediaHubPage showNotes={showNotes} />;
+      case 'verify': return <VerificationPage showNotes={showNotes} />;
+      default: return <LandingPage showNotes={showNotes} />;
+    }
+  };
+
+  return (
+    <div className="min-h-screen bg-gray-100 font-sans text-slate-800 pb-20">
+      {/* Top Bar */}
+      <div className="bg-white border-b border-gray-200 sticky top-0 z-50">
+        <div className="max-w-full mx-auto px-4 h-16 flex items-center justify-between">
+          <div className="flex items-center gap-2">
+            <div className="w-8 h-8 bg-blue-600 rounded-lg flex items-center justify-center text-white font-bold">C</div>
+            <span className="font-bold text-lg tracking-tight hidden md:inline">CyberShujaa <span className="text-gray-400 font-normal text-sm ml-2">v1.4 Master</span></span>
+          </div>
+          
+          <div className="flex items-center gap-4">
+             <label className="flex items-center gap-2 text-sm text-gray-600 cursor-pointer bg-gray-100 px-3 py-1.5 rounded-full hover:bg-gray-200 transition-colors">
+              <input type="checkbox" checked={showNotes} onChange={(e) => setShowNotes(e.target.checked)} className="rounded text-blue-600" />
+              <span className="hidden md:inline">Show Tasks</span>
+            </label>
+            <div className="h-6 w-px bg-gray-300 mx-2"></div>
+            <button className="text-gray-500 hover:text-gray-900"><Menu className="w-6 h-6" /></button>
+          </div>
+        </div>
+        
+        {/* Navigation Tabs */}
+        <div className="max-w-full mx-auto px-4 overflow-x-auto scrollbar-hide">
+          <div className="flex gap-6 text-sm font-medium w-max">
+            {[
+              { id: 'home', label: 'Home' },
+              { id: 'shujaaGirlz', label: 'Shujaa Girlz' },
+              { id: 'course', label: 'Course' },
+              { id: 'employer', label: 'Employer Portal' },
+              { id: 'community', label: 'Community' },
+              { id: 'career', label: 'Career' },
+              { id: 'research', label: 'Research' },
+              { id: 'corporate', label: 'Corporate' },
+              { id: 'media', label: 'Media' },
+              { id: 'verify', label: 'Verify' },
+            ].map(tab => (
+              <button 
+                key={tab.id}
+                onClick={() => setActiveTab(tab.id)}
+                className={`pb-3 border-b-2 px-1 transition-colors ${activeTab === tab.id ? 'border-blue-600 text-blue-600' : 'border-transparent text-gray-500 hover:text-gray-700'}`}
+              >
+                {tab.label}
+              </button>
+            ))}
+          </div>
+        </div>
+      </div>
+
+      {/* Main Content Area */}
+      <div className="max-w-6xl mx-auto mt-8 px-4">
+        <div className="bg-white rounded-xl shadow-sm border border-gray-200 min-h-[600px] p-8 relative">
+           {renderContent()}
+        </div>
+        <p className="text-center text-gray-400 text-sm mt-8">
+          Master Wireframe Prototype • All Modules Active
+        </p>
+      </div>
+    </div>
+  );
+}

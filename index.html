@@ -1,0 +1,816 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CyberShujaa Academy Wireframe</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+        * { font-family: 'Inter', sans-serif; }
+        .scrollbar-hide { -ms-overflow-style: none; scrollbar-width: none; }
+        .scrollbar-hide::-webkit-scrollbar { display: none; }
+        
+        /* Animation Keyframes */
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(5px); } to { opacity: 1; transform: translateY(0); } }
+        .animate-in { animation: fadeIn 0.4s ease-out forwards; }
+        
+        .placeholder-img { background: linear-gradient(45deg, #f3f4f6 25%, #e5e7eb 25%, #e5e7eb 50%, #f3f4f6 50%, #f3f4f6 75%, #e5e7eb 75%, #e5e7eb); background-size: 20px 20px; }
+    </style>
+</head>
+<body class="bg-gray-100 text-slate-800 min-h-screen pb-20">
+    <div class="bg-white border-b border-gray-200 sticky top-0 z-50">
+        <div class="max-w-full mx-auto px-4 h-16 flex items-center justify-between">
+            <div class="flex items-center gap-2">
+                <div class="w-8 h-8 bg-blue-600 rounded-lg flex items-center justify-center text-white font-bold">C</div>
+                <span class="font-bold text-lg tracking-tight hidden md:inline">CyberShujaa <span class="text-gray-400 font-normal text-sm ml-2">v1.5 Refined</span></span>
+            </div>
+            
+            <div class="flex items-center gap-4">
+                <label class="flex items-center gap-2 text-sm text-gray-600 cursor-pointer bg-gray-100 px-3 py-1.5 rounded-full hover:bg-gray-200 transition-colors">
+                    <input type="checkbox" id="showNotesToggle" checked class="rounded text-blue-600">
+                    <span class="hidden md:inline">Show Tasks</span>
+                </label>
+                <div class="h-6 w-px bg-gray-300 mx-2"></div>
+                <button class="text-gray-500 hover:text-gray-900"><i data-lucide="menu" class="w-6 h-6"></i></button>
+            </div>
+        </div>
+        
+        <div class="max-w-full mx-auto px-4 overflow-x-auto scrollbar-hide">
+            <div class="flex gap-6 text-sm font-medium w-max py-1" id="navContainer">
+                <button data-tab="home" class="tab-button pb-3 border-b-2 px-1 border-blue-600 text-blue-600 transition-colors duration-200">Home</button>
+                <button data-tab="shujaaGirlz" class="tab-button pb-3 border-b-2 px-1 border-transparent text-gray-500 hover:text-gray-700 transition-colors duration-200">Shujaa Girlz</button>
+                <button data-tab="course" class="tab-button pb-3 border-b-2 px-1 border-transparent text-gray-500 hover:text-gray-700 transition-colors duration-200">Course</button>
+                <button data-tab="employer" class="tab-button pb-3 border-b-2 px-1 border-transparent text-gray-500 hover:text-gray-700 transition-colors duration-200">Employer Portal</button>
+                <button data-tab="community" class="tab-button pb-3 border-b-2 px-1 border-transparent text-gray-500 hover:text-gray-700 transition-colors duration-200">Community</button>
+                <button data-tab="career" class="tab-button pb-3 border-b-2 px-1 border-transparent text-gray-500 hover:text-gray-700 transition-colors duration-200">Career</button>
+                <button data-tab="research" class="tab-button pb-3 border-b-2 px-1 border-transparent text-gray-500 hover:text-gray-700 transition-colors duration-200">Research</button>
+                <button data-tab="corporate" class="tab-button pb-3 border-b-2 px-1 border-transparent text-gray-500 hover:text-gray-700 transition-colors duration-200">Corporate</button>
+                <button data-tab="media" class="tab-button pb-3 border-b-2 px-1 border-transparent text-gray-500 hover:text-gray-700 transition-colors duration-200">Media</button>
+                <button data-tab="verify" class="tab-button pb-3 border-b-2 px-1 border-transparent text-gray-500 hover:text-gray-700 transition-colors duration-200">Verify</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="max-w-6xl mx-auto mt-8 px-4">
+        <div class="bg-white rounded-xl shadow-sm border border-gray-200 min-h-[600px] p-8 relative">
+            
+            <div id="home" class="tab-content space-y-8 animate-in"> 
+                <div class="relative bg-slate-900 text-white p-8 md:p-12 rounded-xl text-center overflow-hidden">
+                    <div class="relative z-10">
+                        <h1 class="text-3xl md:text-4xl font-bold mb-4">CyberShujaa Academy</h1>
+                        <p class="text-lg md:text-xl text-slate-300 mb-8 max-w-2xl mx-auto">Launch Your Tech Career with Cyber Shujaa!</p>
+                        <div class="flex flex-col sm:flex-row justify-center gap-4">
+                            <button class="bg-blue-600 px-6 py-3 rounded-lg font-semibold hover:bg-blue-700">Browse Courses</button>
+                            <button class="bg-transparent border border-white px-6 py-3 rounded-lg font-semibold hover:bg-white/10">Hire Talent</button>
+                        </div>
+                    </div>
+                    <div class="annotation absolute top-4 right-4">
+                        <div class="bg-yellow-100 border-l-4 border-yellow-500 text-yellow-900 p-2 text-xs shadow-lg max-w-[200px] rounded">
+                            <span class="font-bold block uppercase tracking-wider text-[10px] text-yellow-600">Phase 3</span>
+                            Implement SSO Identity Integration
+                        </div>
+                    </div>
+                </div>
+
+                <div class="relative grid grid-cols-1 md:grid-cols-3 gap-6">
+                    <div class="bg-white p-6 rounded-xl border border-gray-200 shadow-sm text-center">
+                        <div class="text-3xl font-bold text-slate-800">450+</div>
+                        <div class="text-sm text-gray-500 uppercase tracking-wide">Graduates Placed</div>
+                    </div>
+                    <div class="bg-white p-6 rounded-xl border border-gray-200 shadow-sm text-center">
+                        <div class="text-3xl font-bold text-slate-800">30+</div>
+                        <div class="text-sm text-gray-500 uppercase tracking-wide">Active Partners</div>
+                    </div>
+                    <div class="bg-white p-6 rounded-xl border border-gray-200 shadow-sm text-center">
+                        <div class="text-3xl font-bold text-slate-800">120</div>
+                        <div class="text-sm text-gray-500 uppercase tracking-wide">Current Students</div>
+                    </div>
+                    <div class="annotation absolute -top-2 right-0">
+                        <div class="bg-yellow-100 border-l-4 border-yellow-500 text-yellow-900 p-2 text-xs shadow-lg max-w-[200px] rounded">
+                            <span class="font-bold block uppercase tracking-wider text-[10px] text-yellow-600">Phase 5</span>
+                            Talent Pool Metrics Dashboard
+                        </div>
+                    </div>
+                </div>
+
+                <div class="relative bg-white p-6 md:p-8 rounded-xl border border-gray-200">
+                    <h3 class="text-xl font-bold mb-6 flex items-center gap-2">
+                        <i data-lucide="users" class="w-5 h-5 text-blue-600"></i> Alumni Success Stories
+                    </h3>
+                    <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+                        <div class="space-y-2">
+                            <div class="w-full h-32 placeholder-img border-2 border-dashed border-gray-300 rounded-lg flex items-center justify-center text-gray-400">
+                                <div class="text-center">
+                                    <div class="mx-auto w-8 h-8 mb-2 bg-gray-200 rounded-full"></div>
+                                    Alumni Photo
+                                </div>
+                            </div>
+                            <div class="h-4 bg-gray-100 rounded w-3/4"></div>
+                            <div class="h-3 bg-gray-100 rounded w-1/2"></div>
+                        </div>
+                        <div class="space-y-2">
+                            <div class="w-full h-32 placeholder-img border-2 border-dashed border-gray-300 rounded-lg flex items-center justify-center text-gray-400">
+                                <div class="text-center">
+                                    <div class="mx-auto w-8 h-8 mb-2 bg-gray-200 rounded-full"></div>
+                                    Alumni Photo
+                                </div>
+                            </div>
+                            <div class="h-4 bg-gray-100 rounded w-3/4"></div>
+                            <div class="h-3 bg-gray-100 rounded w-1/2"></div>
+                        </div>
+                        <div class="space-y-2">
+                            <div class="w-full h-32 placeholder-img border-2 border-dashed border-gray-300 rounded-lg flex items-center justify-center text-gray-400">
+                                <div class="text-center">
+                                    <div class="mx-auto w-8 h-8 mb-2 bg-gray-200 rounded-full"></div>
+                                    Alumni Photo
+                                </div>
+                            </div>
+                            <div class="h-4 bg-gray-100 rounded w-3/4"></div>
+                            <div class="h-3 bg-gray-100 rounded w-1/2"></div>
+                        </div>
+                        <div class="space-y-2">
+                            <div class="w-full h-32 placeholder-img border-2 border-dashed border-gray-300 rounded-lg flex items-center justify-center text-gray-400">
+                                <div class="text-center">
+                                    <div class="mx-auto w-8 h-8 mb-2 bg-gray-200 rounded-full"></div>
+                                    Alumni Photo
+                                </div>
+                            </div>
+                            <div class="h-4 bg-gray-100 rounded w-3/4"></div>
+                            <div class="h-3 bg-gray-100 rounded w-1/2"></div>
+                        </div>
+                    </div>
+                    <div class="annotation absolute top-0 right-0">
+                        <div class="bg-yellow-100 border-l-4 border-yellow-500 text-yellow-900 p-2 text-xs shadow-lg max-w-[200px] rounded">
+                            <span class="font-bold block uppercase tracking-wider text-[10px] text-yellow-600">Phase 5</span>
+                            Visual gallery of alumni with stories & placements
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="shujaaGirlz" class="tab-content hidden space-y-8">
+                <div class="bg-purple-900 text-white p-8 md:p-12 rounded-xl overflow-hidden relative">
+                    <div class="relative z-10 grid md:grid-cols-2 gap-8 items-center">
+                        <div>
+                            <div class="inline-flex items-center gap-2 bg-purple-800 px-3 py-1 rounded-full text-xs font-semibold mb-4 text-purple-200 border border-purple-700">
+                                <i data-lucide="heart" class="w-3 h-3 fill-current"></i> Women in Cybersecurity
+                            </div>
+                            <h1 class="text-3xl md:text-4xl font-bold mb-4">Shujaa Girlz</h1>
+                            <p class="text-lg text-purple-200 mb-6">Empowering women with specialized mentorship, scholarships, and technical training in cyber defense.</p>
+                            <div class="flex flex-col sm:flex-row gap-4">
+                                <button class="bg-pink-600 px-6 py-3 rounded-lg font-semibold hover:bg-pink-700">Join Next Cohort</button>
+                                <button class="bg-transparent border border-purple-400 px-6 py-3 rounded-lg font-semibold hover:bg-purple-800">Become a Mentor</button>
+                            </div>
+                        </div>
+                        <div class="hidden md:flex justify-end">
+                            <div class="w-64 h-64 bg-purple-800 rounded-full flex items-center justify-center border-4 border-purple-700/50">
+                                <i data-lucide="users" class="w-24 h-24 text-purple-400"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="annotation absolute top-4 right-4">
+                        <div class="bg-yellow-100 border-l-4 border-yellow-500 text-yellow-900 p-2 text-xs shadow-lg max-w-[200px] rounded">
+                            <span class="font-bold block uppercase tracking-wider text-[10px] text-yellow-600">Phase 3</span>
+                            Detailed Course Microsites (Adapted for Shujaa Girlz)
+                        </div>
+                    </div>
+                </div>
+
+                <div class="grid md:grid-cols-3 gap-6">
+                    <div class="bg-white p-6 rounded-xl border border-purple-100 shadow-sm">
+                        <i data-lucide="award" class="w-8 h-8 text-pink-600 mb-4"></i>
+                        <h3 class="font-bold text-lg mb-2">Scholarships</h3>
+                        <p class="text-gray-600 text-sm">Full and partial funding available for qualifying female candidates across East Africa.</p>
+                    </div>
+                    <div class="bg-white p-6 rounded-xl border border-purple-100 shadow-sm">
+                        <i data-lucide="star" class="w-8 h-8 text-purple-600 mb-4"></i>
+                        <h3 class="font-bold text-lg mb-2">1-on-1 Mentorship</h3>
+                        <p class="text-gray-600 text-sm">Get paired with senior female security engineers from top banks and telcos.</p>
+                    </div>
+                    <div class="bg-white p-6 rounded-xl border border-purple-100 shadow-sm">
+                        <i data-lucide="users" class="w-8 h-8 text-blue-600 mb-4"></i>
+                        <h3 class="font-bold text-lg mb-2">Community Events</h3>
+                        <p class="text-gray-600 text-sm">Exclusive networking breakfasts and "Women in Tech" panels.</p>
+                    </div>
+                </div>
+
+                <div class="bg-pink-50 border border-pink-100 rounded-xl p-8 flex flex-col md:flex-row items-center justify-between gap-6">
+                    <div>
+                        <h3 class="text-xl font-bold text-gray-900">Next Cohort: May 2024</h3>
+                        <p class="text-gray-600 mt-1">Application deadline: <span class="font-semibold text-pink-700">April 15th</span></p>
+                    </div>
+                    <div class="w-full md:w-auto relative">
+                        <button class="w-full md:w-auto bg-slate-900 text-white px-8 py-3 rounded-lg font-semibold">Apply to Shujaa Girlz</button>
+                        <div class="annotation absolute -bottom-10 right-0">
+                            <div class="bg-yellow-100 border-l-4 border-yellow-500 text-yellow-900 p-2 text-xs shadow-lg max-w-[200px] rounded">
+                                <span class="font-bold block uppercase tracking-wider text-[10px] text-yellow-600">Phase 2</span>
+                                Migrate Application Forms (Specific Logic for Girlz)
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="course" class="tab-content hidden grid-cols-1 lg:grid-cols-3 gap-8">
+                <div class="lg:col-span-2 space-y-8">
+                    <div class="relative">
+                        <h2 class="text-3xl font-bold text-slate-900 mb-2">Ethical Hacking & Penetration Testing</h2>
+                        <p class="text-gray-600 mb-4">Master the art of offensive security with hands-on labs.</p>
+                        <div class="flex gap-2 mb-6">
+                            <span class="bg-blue-100 text-blue-800 text-xs px-2 py-1 rounded-full">Level: Intermediate</span>
+                            <span class="bg-green-100 text-green-800 text-xs px-2 py-1 rounded-full">Duration: 12 Weeks</span>
+                        </div>
+                        <div class="annotation">
+                            <div class="bg-yellow-100 border-l-4 border-yellow-500 text-yellow-900 p-2 text-xs shadow-lg max-w-[200px] rounded">
+                                <span class="font-bold block uppercase tracking-wider text-[10px] text-yellow-600">Phase 3</span>
+                                Detailed Course Microsites (Syllabus, Bio, Tools)
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="border-b border-gray-200 flex gap-6 text-sm font-medium text-gray-500">
+                        <span class="text-blue-600 border-b-2 border-blue-600 pb-2 cursor-pointer">Syllabus</span>
+                        <span class="hover:text-gray-800 cursor-pointer">Instructor</span>
+                        <span class="hover:text-gray-800 cursor-pointer">Tools Stack</span>
+                    </div>
+                    
+                    <div class="space-y-4">
+                        <div class="bg-white border border-gray-200 p-4 rounded-lg flex justify-between items-center">
+                            <div>
+                                <div class="font-semibold">Module 1: Network Reconnaissance</div>
+                                <div class="text-sm text-gray-500">Week 1 • 4 Labs</div>
+                            </div>
+                            <i data-lucide="chevron-right" class="w-5 h-5 text-gray-400"></i>
+                        </div>
+                        <div class="bg-white border border-gray-200 p-4 rounded-lg flex justify-between items-center">
+                            <div>
+                                <div class="font-semibold">Module 2: Vulnerability Assessment</div>
+                                <div class="text-sm text-gray-500">Week 2 • 5 Labs</div>
+                            </div>
+                            <i data-lucide="chevron-right" class="w-5 h-5 text-gray-400"></i>
+                        </div>
+                        <div class="bg-white border border-gray-200 p-4 rounded-lg flex justify-between items-center">
+                            <div>
+                                <div class="font-semibold">Module 3: Penetration Testing</div>
+                                <div class="text-sm text-gray-500">Week 3 • 6 Labs</div>
+                            </div>
+                            <i data-lucide="chevron-right" class="w-5 h-5 text-gray-400"></i>
+                        </div>
+                        <button class="flex items-center gap-2 text-blue-600 font-medium mt-4">
+                            <i data-lucide="download" class="w-4 h-4"></i> Download Full Syllabus PDF
+                        </button>
+                    </div>
+                </div>
+                
+                <div class="relative space-y-6">
+                    <div class="bg-white p-6 rounded-xl shadow-lg border border-blue-100 sticky top-6">
+                        <h3 class="text-lg font-bold mb-4">Apply Now</h3>
+                        <form class="space-y-3">
+                            <input type="text" placeholder="Full Name" class="w-full p-2 border rounded text-sm">
+                            <input type="email" placeholder="Email Address" class="w-full p-2 border rounded text-sm">
+                            <select class="w-full p-2 border rounded text-sm text-gray-500">
+                                <option>Select Cohort</option>
+                                <option>May 2024</option>
+                            </select>
+                            <button class="w-full bg-blue-600 text-white py-2 rounded-lg font-semibold hover:bg-blue-700">Submit Application</button>
+                            <p class="text-xs text-gray-400 text-center">We no longer use Google Forms.</p>
+                        </form>
+                        <div class="annotation absolute -left-4 top-10">
+                            <div class="bg-yellow-100 border-l-4 border-yellow-500 text-yellow-900 p-2 text-xs shadow-lg max-w-[200px] rounded">
+                                <span class="font-bold block uppercase tracking-wider text-[10px] text-yellow-600">Phase 2</span>
+                                Migrate Application Forms (Embedded onsite form)
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="employer" class="tab-content hidden space-y-6">
+                <div class="flex flex-col sm:flex-row justify-between items-start sm:items-end gap-4">
+                    <div>
+                        <h2 class="text-2xl font-bold text-slate-900">Talent Portal</h2>
+                        <p class="text-gray-500">Find the next generation of cybersecurity experts.</p>
+                    </div>
+                    <button class="bg-slate-900 text-white px-4 py-2 rounded-lg text-sm flex items-center gap-2">
+                        <i data-lucide="briefcase" class="w-4 h-4"></i> Post a Job
+                    </button>
+                </div>
+
+                <div class="relative grid grid-cols-1 md:grid-cols-4 gap-4">
+                    <div class="bg-white p-4 rounded-lg border border-gray-200 shadow-sm">
+                        <div class="text-gray-500 text-xs uppercase font-semibold">Students Available</div>
+                        <div class="text-2xl font-bold text-blue-600 mt-1">84</div>
+                        <div class="text-xs text-green-600 flex items-center mt-1"><i data-lucide="user-check" class="w-3 h-3 mr-1"></i> Verified Skills</div>
+                    </div>
+                    <div class="annotation absolute top-0 right-0">
+                        <div class="bg-yellow-100 border-l-4 border-yellow-500 text-yellow-900 p-2 text-xs shadow-lg max-w-[200px] rounded">
+                            <span class="font-bold block uppercase tracking-wider text-[10px] text-yellow-600">Phase 5</span>
+                            Talent Pool Metrics Dashboard
+                        </div>
+                    </div>
+                </div>
+
+                <div class="relative bg-white border border-gray-200 rounded-xl overflow-hidden shadow-sm">
+                    <table class="w-full text-left text-sm">
+                        <thead class="bg-gray-50 text-gray-500 font-medium border-b">
+                            <tr>
+                                <th class="p-4">Candidate</th>
+                                <th class="p-4">Status</th>
+                                <th class="p-4">Top Skills</th>
+                                <th class="p-4">Action</th>
+                            </tr>
+                        </thead>
+                        <tbody class="divide-y">
+                            <tr class="hover:bg-gray-50">
+                                <td class="p-4 flex items-center gap-3">
+                                    <div class="w-8 h-8 bg-blue-100 rounded-full flex items-center justify-center text-blue-600 font-bold text-xs">CS</div>
+                                    <div>
+                                        <div class="font-medium text-slate-900">Student #202301</div>
+                                        <div class="text-xs text-gray-500">Nairobi, KE</div>
+                                    </div>
+                                </td>
+                                <td class="p-4"><span class="bg-green-100 text-green-700 px-2 py-1 rounded text-xs font-medium">Open to Work</span></td>
+                                <td class="p-4"><span class="bg-gray-100 px-2 py-1 rounded text-xs">Linux</span> <span class="bg-gray-100 px-2 py-1 rounded text-xs">Python</span></td>
+                                <td class="p-4"><button class="text-blue-600 hover:text-blue-800 font-medium text-xs border border-blue-200 px-3 py-1 rounded">View Profile</button></td>
+                            </tr>
+                            <tr class="hover:bg-gray-50">
+                                <td class="p-4 flex items-center gap-3">
+                                    <div class="w-8 h-8 bg-blue-100 rounded-full flex items-center justify-center text-blue-600 font-bold text-xs">MJ</div>
+                                    <div>
+                                        <div class="font-medium text-slate-900">Student #202302</div>
+                                        <div class="text-xs text-gray-500">Kampala, UG</div>
+                                    </div>
+                                </td>
+                                <td class="p-4"><span class="bg-green-100 text-green-700 px-2 py-1 rounded text-xs font-medium">Open to Work</span></td>
+                                <td class="p-4"><span class="bg-gray-100 px-2 py-1 rounded text-xs">Networking</span> <span class="bg-gray-100 px-2 py-1 rounded text-xs">Cryptography</span></td>
+                                <td class="p-4"><button class="text-blue-600 hover:text-blue-800 font-medium text-xs border border-blue-200 px-3 py-1 rounded">View Profile</button></td>
+                            </tr>
+                            <tr class="hover:bg-gray-50">
+                                <td class="p-4 flex items-center gap-3">
+                                    <div class="w-8 h-8 bg-blue-100 rounded-full flex items-center justify-center text-blue-600 font-bold text-xs">AK</div>
+                                    <div>
+                                        <div class="font-medium text-slate-900">Student #202303</div>
+                                        <div class="text-xs text-gray-500">Dar es Salaam, TZ</div>
+                                    </div>
+                                </td>
+                                <td class="p-4"><span class="bg-yellow-100 text-yellow-700 px-2 py-1 rounded text-xs font-medium">In Training</span></td>
+                                <td class="p-4"><span class="bg-gray-100 px-2 py-1 rounded text-xs">Cloud Security</span> <span class="bg-gray-100 px-2 py-1 rounded text-xs">AWS</span></td>
+                                <td class="p-4"><button class="text-blue-600 hover:text-blue-800 font-medium text-xs border border-blue-200 px-3 py-1 rounded">View Profile</button></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <div class="annotation absolute top-10 right-10">
+                        <div class="bg-yellow-100 border-l-4 border-yellow-500 text-yellow-900 p-2 text-xs shadow-lg max-w-[200px] rounded">
+                            <span class="font-bold block uppercase tracking-wider text-[10px] text-yellow-600">Phase 3</span>
+                            Student Open to Work Feature
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="community" class="tab-content hidden space-y-8">
+                <div class="relative bg-slate-900 text-white rounded-xl p-8 overflow-hidden">
+                    <div class="flex items-center gap-3 mb-6">
+                        <i data-lucide="trophy" class="w-8 h-8 text-yellow-400"></i>
+                        <h2 class="text-2xl font-bold">Security Hall of Fame</h2>
+                    </div>
+                    
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                        <div class="bg-white/10 backdrop-blur-sm p-4 rounded-lg border border-white/20">
+                            <div class="flex justify-between items-start mb-4">
+                                <div class="bg-yellow-500 text-slate-900 text-xs font-bold px-2 py-1 rounded">#1 Rank</div>
+                                <i data-lucide="shield" class="w-5 h-5 text-slate-300"></i>
+                            </div>
+                            <div class="w-12 h-12 bg-white/20 rounded-full mb-3"></div>
+                            <div class="font-bold">Jane Doe</div>
+                            <div class="text-xs text-slate-300">CTF Champion</div>
+                            <div class="mt-3 text-sm font-mono text-green-400">Score: 9,850</div>
+                        </div>
+                        <div class="bg-white/10 backdrop-blur-sm p-4 rounded-lg border border-white/20">
+                            <div class="flex justify-between items-start mb-4">
+                                <div class="bg-gray-400 text-white text-xs font-bold px-2 py-1 rounded">#2 Rank</div>
+                                <i data-lucide="shield" class="w-5 h-5 text-slate-300"></i>
+                            </div>
+                            <div class="w-12 h-12 bg-white/20 rounded-full mb-3"></div>
+                            <div class="font-bold">John Smith</div>
+                            <div class="text-xs text-slate-300">Bug Bounty Hunter</div>
+                            <div class="mt-3 text-sm font-mono text-green-400">Score: 9,200</div>
+                        </div>
+                        <div class="bg-white/10 backdrop-blur-sm p-4 rounded-lg border border-white/20">
+                            <div class="flex justify-between items-start mb-4">
+                                <div class="bg-amber-700 text-white text-xs font-bold px-2 py-1 rounded">#3 Rank</div>
+                                <i data-lucide="shield" class="w-5 h-5 text-slate-300"></i>
+                            </div>
+                            <div class="w-12 h-12 bg-white/20 rounded-full mb-3"></div>
+                            <div class="font-bold">Sarah Chen</div>
+                            <div class="text-xs text-slate-300">Defense Expert</div>
+                            <div class="mt-3 text-sm font-mono text-green-400">Score: 8,750</div>
+                        </div>
+                    </div>
+                    <div class="annotation absolute top-4 right-4">
+                        <div class="bg-yellow-100 border-l-4 border-yellow-500 text-yellow-900 p-2 text-xs shadow-lg max-w-[200px] rounded">
+                            <span class="font-bold block uppercase tracking-wider text-[10px] text-yellow-600">Phase 2</span>
+                            Security Hall of Fame Page (CTF Achievements)
+                        </div>
+                    </div>
+                </div>
+
+                <div class="relative grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <div class="border border-gray-200 rounded-xl p-6 bg-white">
+                        <h3 class="text-lg font-bold mb-4 flex items-center gap-2">
+                            <i data-lucide="calendar" class="w-5 h-5 text-blue-600"></i> Upcoming Events
+                        </h3>
+                        <div class="space-y-4">
+                            <div class="flex gap-4 items-start">
+                                <div class="bg-blue-50 text-blue-700 text-center p-2 rounded min-w-[60px]">
+                                    <div class="text-xs font-bold uppercase">Oct</div>
+                                    <div class="text-xl font-bold">11</div>
+                                </div>
+                                <div>
+                                    <div class="font-medium text-slate-900">Cyber Defense Summit 2025</div>
+                                    <div class="text-sm text-gray-500">Virtual Webinar • 2:00 PM EAT</div>
+                                    <button class="text-blue-600 text-xs font-medium mt-1">Register Now</button>
+                                </div>
+                            </div>
+                            <div class="flex gap-4 items-start">
+                                <div class="bg-blue-50 text-blue-700 text-center p-2 rounded min-w-[60px]">
+                                    <div class="text-xs font-bold uppercase">Oct</div>
+                                    <div class="text-xl font-bold">25</div>
+                                </div>
+                                <div>
+                                    <div class="font-medium text-slate-900">Women in Cybersecurity Panel</div>
+                                    <div class="text-sm text-gray-500">Nairobi • 4:00 PM EAT</div>
+                                    <button class="text-blue-600 text-xs font-medium mt-1">Register Now</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="annotation absolute top-4 right-4">
+                            <div class="bg-yellow-100 border-l-4 border-yellow-500 text-yellow-900 p-2 text-xs shadow-lg max-w-[200px] rounded">
+                                <span class="font-bold block uppercase tracking-wider text-[10px] text-yellow-600">Phase 4</span>
+                                Industry Events Page & Calendar
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="border border-gray-200 rounded-xl p-6 bg-gray-50">
+                        <h3 class="text-lg font-bold mb-4 flex items-center gap-2">
+                            <i data-lucide="file-text" class="w-5 h-5 text-purple-600"></i> Job Board
+                        </h3>
+                        <div class="bg-white p-4 rounded-lg border border-gray-200 shadow-sm mb-3">
+                            <div class="text-sm font-bold text-slate-800">Junior SOC Analyst</div>
+                            <div class="text-xs text-gray-500 mb-2">Equity Bank • Nairobi</div>
+                            <button class="w-full bg-slate-900 text-white text-xs py-2 rounded">Apply Now</button>
+                        </div>
+                        <div class="bg-white p-4 rounded-lg border border-gray-200 shadow-sm mb-3">
+                            <div class="text-sm font-bold text-slate-800">Security Engineer</div>
+                            <div class="text-xs text-gray-500 mb-2">Safaricom • Remote</div>
+                            <button class="w-full bg-slate-900 text-white text-xs py-2 rounded">Apply Now</button>
+                        </div>
+                        <div class="text-center mt-4">
+                            <button class="text-sm text-blue-600 font-medium">View All Jobs</button>
+                        </div>
+                        <div class="annotation absolute top-4 right-4">
+                            <div class="bg-yellow-100 border-l-4 border-yellow-500 text-yellow-900 p-2 text-xs shadow-lg max-w-[200px] rounded">
+                                <span class="font-bold block uppercase tracking-wider text-[10px] text-yellow-600">Phase 4</span>
+                                Jobs & Job Alerts Module
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="career" class="tab-content hidden space-y-8">
+                <div class="grid md:grid-cols-3 gap-8">
+                    <div class="md:col-span-2 space-y-6">
+                        <h2 class="text-2xl font-bold text-slate-900">Career Services</h2>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                            <div class="bg-white p-6 rounded-xl border border-gray-200 shadow-sm hover:border-blue-300 transition-colors">
+                                <i data-lucide="user-check" class="w-8 h-8 text-blue-600 mb-3"></i>
+                                <h3 class="font-semibold text-lg">CV & Resume Review</h3>
+                            </div>
+                            <div class="bg-white p-6 rounded-xl border border-gray-200 shadow-sm hover:border-blue-300 transition-colors">
+                                <i data-lucide="users" class="w-8 h-8 text-blue-600 mb-3"></i>
+                                <h3 class="font-semibold text-lg">Mock Interviews</h3>
+                            </div>
+                            <div class="bg-white p-6 rounded-xl border border-gray-200 shadow-sm hover:border-blue-300 transition-colors">
+                                <i data-lucide="linkedin" class="w-8 h-8 text-blue-600 mb-3"></i>
+                                <h3 class="font-semibold text-lg">LinkedIn Optimization</h3>
+                            </div>
+                            <div class="bg-white p-6 rounded-xl border border-gray-200 shadow-sm hover:border-blue-300 transition-colors">
+                                <i data-lucide="dollar-sign" class="w-8 h-8 text-blue-600 mb-3"></i>
+                                <h3 class="font-semibold text-lg">Salary Negotiation</h3>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="relative bg-green-50 p-6 rounded-xl border border-green-200">
+                        <div class="flex items-center gap-2 mb-4 text-green-800 font-bold text-lg">
+                            <i data-lucide="scale" class="w-6 h-6"></i> Job Decency Standards
+                        </div>
+                        <p class="text-sm text-green-700 mb-4">
+                            We only partner with employers who meet our decent work criteria:
+                        </p>
+                        <ul class="space-y-3 text-sm text-green-800">
+                            <li class="flex items-center gap-2"><i data-lucide="check-circle" class="w-4 h-4"></i> Fair Market Wages</li>
+                            <li class="flex items-center gap-2"><i data-lucide="check-circle" class="w-4 h-4"></i> Safe Working Environment</li>
+                            <li class="flex items-center gap-2"><i data-lucide="check-circle" class="w-4 h-4"></i> Clear Employment Contracts</li>
+                            <li class="flex items-center gap-2"><i data-lucide="check-circle" class="w-4 h-4"></i> Professional Development</li>
+                        </ul>
+                        <div class="annotation absolute top-4 right-4">
+                            <div class="bg-yellow-100 border-l-4 border-yellow-500 text-yellow-900 p-2 text-xs shadow-lg max-w-[200px] rounded">
+                                <span class="font-bold block uppercase tracking-wider text-[10px] text-yellow-600">Phase 4</span>
+                                Job Decency Section
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="research" class="tab-content hidden space-y-8">
+                <div class="bg-slate-50 p-8 rounded-xl border border-slate-200 text-center">
+                    <h2 class="text-3xl font-bold text-slate-900 mb-2">Research & Publications Hub</h2>
+                    <p class="text-gray-600 max-w-2xl mx-auto">Exploring the frontiers of African cybersecurity through data-driven analysis.</p>
+                    <div class="mt-6 flex flex-col sm:flex-row justify-center gap-4">
+                        <button class="bg-slate-900 text-white px-6 py-2 rounded-lg text-sm">View Latest Report</button>
+                        <button class="bg-white border border-gray-300 px-6 py-2 rounded-lg text-sm">Submit Paper</button>
+                    </div>
+                </div>
+
+                <div class="grid md:grid-cols-2 gap-8">
+                    <div class="relative space-y-4">
+                        <h3 class="text-xl font-bold flex items-center gap-2">
+                            <i data-lucide="book-open" class="w-5 h-5 text-blue-600"></i> Internal Publications
+                        </h3>
+                        <div class="bg-white p-4 rounded-lg border border-gray-200 shadow-sm">
+                            <div class="text-xs text-blue-600 font-semibold mb-1">Whitepaper • Q1 2024</div>
+                            <h4 class="font-bold text-lg mb-2">State of Cyber Threats in Kenyan FinTech</h4>
+                            <p class="text-gray-500 text-sm mb-3">An analysis of attack vectors targeting mobile money platforms.</p>
+                            <button class="text-blue-600 text-xs font-bold flex items-center gap-1">Read Paper <i data-lucide="chevron-right" class="w-3 h-3"></i></button>
+                        </div>
+                        <div class="bg-white p-4 rounded-lg border border-gray-200 shadow-sm">
+                            <div class="text-xs text-blue-600 font-semibold mb-1">Research Paper • Q4 2023</div>
+                            <h4 class="font-bold text-lg mb-2">AI-Powered Threat Detection for African SMEs</h4>
+                            <p class="text-gray-500 text-sm mb-3">Cost-effective security solutions for small businesses.</p>
+                            <button class="text-blue-600 text-xs font-bold flex items-center gap-1">Read Paper <i data-lucide="chevron-right" class="w-3 h-3"></i></button>
+                        </div>
+                        <div class="annotation absolute -top-2 right-0">
+                            <div class="bg-yellow-100 border-l-4 border-yellow-500 text-yellow-900 p-2 text-xs shadow-lg max-w-[200px] rounded">
+                                <span class="font-bold block uppercase tracking-wider text-[10px] text-yellow-600">Phase 5</span>
+                                Publish Internal Research Papers
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="relative bg-white p-6 rounded-xl border border-gray-200">
+                        <h3 class="text-xl font-bold flex items-center gap-2 mb-4">
+                            <i data-lucide="star" class="w-5 h-5 text-yellow-500"></i> Student Research Spotlight
+                        </h3>
+                        <div class="flex gap-4 items-start">
+                            <div class="w-16 h-16 bg-gray-200 rounded-full flex-shrink-0"></div>
+                            <div>
+                                <h4 class="font-bold">Kevin Omondi</h4>
+                                <div class="text-sm text-gray-500 mb-2">Cohort 12 • Penetration Testing</div>
+                                <p class="text-sm italic text-gray-700 bg-gray-50 p-3 rounded">
+                                    "Developing a low-cost IDS for SME networks using Raspberry Pi clusters."
+                                </p>
+                            </div>
+                        </div>
+                        <div class="annotation absolute top-0 right-0">
+                            <div class="bg-yellow-100 border-l-4 border-yellow-500 text-yellow-900 p-2 text-xs shadow-lg max-w-[200px] rounded">
+                                <span class="font-bold block uppercase tracking-wider text-[10px] text-yellow-600">Phase 5</span>
+                                Student Research Spotlight Program
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="corporate" class="tab-content hidden space-y-8">
+                <div class="grid md:grid-cols-2 gap-12 items-center">
+                    <div>
+                        <h2 class="text-3xl font-bold text-slate-900 mb-4">Corporate Training Solutions</h2>
+                        <p class="text-gray-600 mb-6">Upskill your workforce with custom cybersecurity bootcamps tailored to your industry stack.</p>
+                        <ul class="space-y-3 mb-8">
+                            <li class="flex items-center gap-3">
+                                <div class="w-8 h-8 bg-blue-100 rounded-lg flex items-center justify-center text-blue-600"><i data-lucide="shield" class="w-4 h-4"></i></div>
+                                <span class="font-medium">SOC Team Onboarding</span>
+                            </li>
+                            <li class="flex items-center gap-3">
+                                <div class="w-8 h-8 bg-blue-100 rounded-lg flex items-center justify-center text-blue-600"><i data-lucide="users" class="w-4 h-4"></i></div>
+                                <span class="font-medium">Employee Phishing Awareness</span>
+                            </li>
+                            <li class="flex items-center gap-3">
+                                <div class="w-8 h-8 bg-blue-100 rounded-lg flex items-center justify-center text-blue-600"><i data-lucide="lock" class="w-4 h-4"></i></div>
+                                <span class="font-medium">Cloud Security Compliance</span>
+                            </li>
+                            <li class="flex items-center gap-3">
+                                <div class="w-8 h-8 bg-blue-100 rounded-lg flex items-center justify-center text-blue-600"><i data-lucide="code" class="w-4 h-4"></i></div>
+                                <span class="font-medium">DevSecOps Integration</span>
+                            </li>
+                        </ul>
+                        <button class="bg-blue-600 text-white px-6 py-3 rounded-lg font-semibold">Request Consultation</button>
+                    </div>
+                    <div class="grid grid-cols-2 gap-4">
+                        <div class="h-24 bg-gray-50 border border-gray-200 rounded-lg flex items-center justify-center text-gray-400 font-bold">
+                            Client Logo 1
+                        </div>
+                        <div class="h-24 bg-gray-50 border border-gray-200 rounded-lg flex items-center justify-center text-gray-400 font-bold">
+                            Client Logo 2
+                        </div>
+                        <div class="h-24 bg-gray-50 border border-gray-200 rounded-lg flex items-center justify-center text-gray-400 font-bold">
+                            Client Logo 3
+                        </div>
+                        <div class="h-24 bg-gray-50 border border-gray-200 rounded-lg flex items-center justify-center text-gray-400 font-bold">
+                            Client Logo 4
+                        </div>
+                    </div>
+                </div>
+                <div class="relative">
+                    <div class="annotation">
+                        <div class="bg-yellow-100 border-l-4 border-yellow-500 text-yellow-900 p-2 text-xs shadow-lg max-w-[200px] rounded">
+                            <span class="font-bold block uppercase tracking-wider text-[10px] text-yellow-600">Phase 5</span>
+                            Corporate Training & Clients Page
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="media" class="tab-content hidden space-y-8">
+                <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 border-b pb-4">
+                    <h2 class="text-2xl font-bold text-slate-900">Shujaa Media Hub</h2>
+                    <div class="flex flex-wrap gap-2">
+                        <button class="text-sm bg-slate-100 px-3 py-1 rounded-full text-slate-700 font-medium">All</button>
+                        <button class="text-sm hover:bg-slate-50 px-3 py-1 rounded-full text-slate-500">Podcasts</button>
+                        <button class="text-sm hover:bg-slate-50 px-3 py-1 rounded-full text-slate-500">Videos</button>
+                        <button class="text-sm hover:bg-slate-50 px-3 py-1 rounded-full text-slate-500">Press</button>
+                        <button class="text-sm hover:bg-slate-50 px-3 py-1 rounded-full text-slate-500">Blog</button>
+                    </div>
+                </div>
+
+                <div class="grid md:grid-cols-3 gap-6">
+                    <div class="md:col-span-2 relative group cursor-pointer">
+                        <div class="bg-slate-900 rounded-xl h-64 flex items-center justify-center text-white">
+                            <i data-lucide="video" class="w-12 h-12 opacity-80"></i>
+                        </div>
+                        <div class="mt-3">
+                            <div class="text-xs text-blue-600 font-bold uppercase mb-1">Documentary</div>
+                            <h3 class="font-bold text-xl">The Rise of Cyber Defenders in East Africa</h3>
+                            <p class="text-gray-500 text-sm mt-1">45 min • Featured on BBC Africa</p>
+                        </div>
+                    </div>
+
+                    <div class="space-y-4">
+                        <h3 class="font-bold text-gray-900 flex items-center gap-2">
+                            <i data-lucide="mic" class="w-5 h-5 text-purple-600"></i> Shujaa Talks Podcast
+                        </h3>
+                        <div class="flex gap-3 items-start p-3 bg-white border border-gray-100 rounded-lg hover:shadow-md transition-shadow cursor-pointer">
+                            <div class="w-10 h-10 bg-purple-100 rounded flex-shrink-0 flex items-center justify-center text-purple-600 font-bold text-xs">EP1</div>
+                            <div>
+                                <div class="font-semibold text-sm line-clamp-1">Navigating the Dark Web safely</div>
+                                <div class="text-xs text-gray-500">24 mins • Host: Sarah K.</div>
+                            </div>
+                        </div>
+                        <div class="flex gap-3 items-start p-3 bg-white border border-gray-100 rounded-lg hover:shadow-md transition-shadow cursor-pointer">
+                            <div class="w-10 h-10 bg-purple-100 rounded flex-shrink-0 flex items-center justify-center text-purple-600 font-bold text-xs">EP2</div>
+                            <div>
+                                <div class="font-semibold text-sm line-clamp-1">Women Leading Cybersecurity</div>
+                                <div class="text-xs text-gray-500">32 mins • Host: Amina L.</div>
+                            </div>
+                        </div>
+                        <div class="flex gap-3 items-start p-3 bg-white border border-gray-100 rounded-lg hover:shadow-md transition-shadow cursor-pointer">
+                            <div class="w-10 h-10 bg-purple-100 rounded flex-shrink-0 flex items-center justify-center text-purple-600 font-bold text-xs">EP3</div>
+                            <div>
+                                <div class="font-semibold text-sm line-clamp-1">Bug Bounty Hunting in Africa</div>
+                                <div class="text-xs text-gray-500">28 mins • Host: David M.</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="relative">
+                    <div class="annotation">
+                        <div class="bg-yellow-100 border-l-4 border-yellow-500 text-yellow-900 p-2 text-xs shadow-lg max-w-[200px] rounded">
+                            <span class="font-bold block uppercase tracking-wider text-[10px] text-yellow-600">Phase 5</span>
+                            Launch Shujaa Media Hub
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="verify" class="tab-content hidden max-w-2xl mx-auto space-y-8 py-8">
+                <div class="text-center space-y-4">
+                    <div class="inline-flex p-3 bg-green-100 rounded-full mb-2">
+                        <i data-lucide="graduation-cap" class="w-8 h-8 text-green-600"></i>
+                    </div>
+                    <h2 class="text-3xl font-bold text-slate-900">Verify a Graduate</h2>
+                    <p class="text-gray-600">Enter the Certificate ID to verify CyberShujaa alumni credentials.</p>
+                </div>
+
+                <div class="relative bg-white p-8 rounded-xl shadow-lg border border-gray-200">
+                    <div class="flex flex-col sm:flex-row gap-4 mb-6">
+                        <input 
+                            type="text" 
+                            placeholder="e.g. CS-2024-8921" 
+                            class="flex-1 p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-green-500 outline-none"
+                            id="certificateInput"
+                        />
+                        <button class="bg-green-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-green-700" onclick="verifyCertificate()">Verify</button>
+                    </div>
+
+                    <div id="verificationResult" class="hidden bg-green-50 border border-green-200 rounded-lg p-4 flex gap-4 items-center">
+                        <i data-lucide="check-circle" class="w-8 h-8 text-green-600 flex-shrink-0"></i>
+                        <div>
+                            <div class="font-bold text-green-900">Valid Credential Found</div>
+                            <div class="text-sm text-green-800">
+                                Issued to <span class="font-semibold">John Kamau</span> on <span class="font-semibold">Dec 12, 2023</span>.
+                                <br>
+                                Certification: <span class="font-semibold">Certified SOC Analyst (Level 1)</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="annotation absolute top-0 right-0">
+                        <div class="bg-yellow-100 border-l-4 border-yellow-500 text-yellow-900 p-2 text-xs shadow-lg max-w-[200px] rounded">
+                            <span class="font-bold block uppercase tracking-wider text-[10px] text-yellow-600">Phase 5</span>
+                            Build Alumni Verification Directory
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <p class="text-center text-gray-400 text-sm mt-8">
+            Master Wireframe Prototype • All Modules Active • Save this HTML file to preserve wireframe
+        </p>
+    </div>
+
+    <script>
+        // Initialize Lucide icons
+        lucide.createIcons();
+        
+        // Tab switching functionality
+        document.querySelectorAll('.tab-button').forEach(button => {
+            button.addEventListener('click', function() {
+                // Remove active class from all buttons
+                document.querySelectorAll('.tab-button').forEach(tab => {
+                    tab.classList.remove('border-blue-600', 'text-blue-600');
+                    tab.classList.add('border-transparent', 'text-gray-500');
+                });
+                
+                // Hide all content sections using Tailwind's 'hidden' class
+                document.querySelectorAll('.tab-content').forEach(content => {
+                    content.classList.add('hidden');
+                    content.classList.remove('animate-in'); // Reset animation
+                });
+                
+                // Add active styling to clicked button
+                this.classList.add('border-blue-600', 'text-blue-600');
+                this.classList.remove('border-transparent', 'text-gray-500');
+                
+                // Show corresponding content
+                const tabId = this.getAttribute('data-tab');
+                const targetContent = document.getElementById(tabId);
+                
+                if (targetContent) {
+                    targetContent.classList.remove('hidden');
+                    // Add animation class slightly after removing hidden to trigger animation
+                    setTimeout(() => {
+                        targetContent.classList.add('animate-in');
+                    }, 10);
+                }
+
+                // Re-initialize icons (sometimes needed for hidden elements becoming visible)
+                setTimeout(() => lucide.createIcons(), 50);
+            });
+        });
+        
+        // Show/hide annotations
+        const toggle = document.getElementById('showNotesToggle');
+        toggle.addEventListener('change', function() {
+            document.querySelectorAll('.annotation').forEach(annotation => {
+                annotation.style.display = this.checked ? 'block' : 'none';
+            });
+        });
+        
+        // Certificate verification mock function
+        function verifyCertificate() {
+            const input = document.getElementById('certificateInput').value;
+            const result = document.getElementById('verificationResult');
+            
+            if (input.trim() !== '') {
+                result.classList.remove('hidden');
+                result.classList.add('animate-in');
+            } else {
+                result.classList.add('hidden');
+            }
+        }
+        
+        // Initialize annotations visibility
+        document.addEventListener('DOMContentLoaded', function() {
+            document.querySelectorAll('.annotation').forEach(annotation => {
+                annotation.style.display = toggle.checked ? 'block' : 'none';
+            });
+        });
+    </script>
+</body>
+</html>
